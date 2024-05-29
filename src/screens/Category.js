@@ -1,24 +1,32 @@
 import React from "react";
-import { StyleSheet, Image, Text, View } from "react-native";
+import { StyleSheet, Image, Text, View, TextInput } from "react-native";
+import { FlatList } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Feather from "@expo/vector-icons/Feather";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { TouchableHighlight } from "react-native";
+import HomePage from "./Place";
+import Place from "./Place";
+import Categories from "./Categories";
 
 const Category = (props) => {
   return (
     <View style={styles.container}>
-        <Image source={require('../../assets/museum.jpg')} style={styles.displayImg}></Image>
-       <TouchableHighlight underlayColor="rgba(0, 0, 0, 0.1)">
-        <Image
-          source={require('../../assets/home.png')}
-          style={styles.buttonImage}
-        />
-         {/* <Image
-          source={require('../../assets/categories.png')}
-          style={styles.button1}
-        /> */}
-      </TouchableHighlight>
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Search..."
+     
+      />
+    
+     <Image source={require('../../assets/Mpu.png')} style={styles.displayImg} ></Image>
+     <TouchableOpacity style={styles.btnT} onPress={() => props.navigation.navigate(Place)}>
+        <Text style={styles.textBtn}>Place</Text>
+     </TouchableOpacity>
+     <TouchableOpacity style={styles.btnT} onPress={() => props.navigation.navigate(Categories)}>
+        <Text style={styles.textBtn}>Category</Text>
+     </TouchableOpacity>
+     
+
     </View>
   );
 };
@@ -27,16 +35,28 @@ export default Category;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     // alignItems: "center",
     // justifyContent: "center",
     backgroundColor: "#fff",
+  },
+  btnT:{
+    marginTop:15,
+    backgroundColor: '#E5E5E5',
+    padding: 10,
+    borderRadius: 10,
+    
+  },
+  textBtn:{
+    color: '#121212',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   title: {
     fontSize: 25,
     alignItems: "center",
     justifyContent: "center",
-    // fontFamily: "Montserrat_700Bold",
+    
     marginTop: 30,
   },
   subtitle: {
@@ -45,26 +65,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    // fontFamily: "Montserrat_400Regular",
+    
   },
   text: {
-    // fontFamily: "Montserrat_400Regular",
+    
     alignItems: "center",
     justifyContent: "center",
     fontSize: 18,
     paddingRight: 80,
     lineHeight: 25,
   },
-  btn: {
-    backgroundColor: "#E2443B",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 60,
-    paddingVertical: 12,
-    borderRadius: 30,
-  },
+//   btn: {
+//     backgroundColor: "#E2443B",
+//     // alignItems: "center",
+//     // justifyContent: "center",
+    
+//     borderRadius: 30,
+//   },
   btnText: {
-    // fontFamily: "Montserrat_600SemiBold",
+   
     alignItems: "center",
     justifyContent: "center",
     fontSize: 20,
@@ -140,16 +159,24 @@ const styles = StyleSheet.create({
     height:30,
     width:30,
     marginTop:700,
-    marginLeft:80,
+    marginRight:150,
   },
   button1: {
     height:30,
     width:30,
     marginTop:700,
-    marginRight:80,
+    marginLeft:80,
   },
   displayImg:{
-    height:100,
-    width:250,
+    // position:'absolute',
+    height:175,
+    marginLeft:5,
+    marginTop: 100,
+    width:350,
+    paddingLeft:100,
+    borderRadius:25,
   },
+  btnImage1:{
+    backgroundColor:''
+  }
 });
