@@ -1,4 +1,4 @@
-import { View, Text, Image, FastImage, StyleSheet } from 'react-native'
+import { View, Text, Image, FastImage, StyleSheet, FlatList, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 
@@ -18,28 +18,43 @@ export default function Place() {
     getPlaces();
   }, []);
 return(
-  <View style={{
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  }}>
+ <ScrollView>
+  <View >
     {places.data ? (
       places.data.map((place, index) => (
-        <View key={index}>
+        <View key={index} style={styles.placeView}>
           
-          <Text>{place.name}</Text>
+          <Text style={styles.namePlace}>{place.name}</Text>
+          <Image source={{ uri: place.photo}} style={styles.image} />
+          <Text style={styles.descPlace}>{place.description}</Text>
+          <Image ></Image>
+         
         </View>
       ))
     ) : (
       <Text>Loading</Text>
     )}
   </View>
+  </ScrollView>
 );
 };
 const styles = StyleSheet.create({
   image: {
-    width:150,
+    width:300,
     height:150,
+    borderRadius:10,
+    marginLeft:20,
   },
-
+  namePlace:{
+    marginLeft:20,
+    marginTop:10,
+  },
+  placeView:{
+    marginTop:50,
+  },
+  descPlace:{
+    marginLeft:20,
+    marginTop:10,
+    marginRight:20,
+  },
 });

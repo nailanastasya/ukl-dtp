@@ -75,13 +75,9 @@ const styles = StyleSheet.create({
     paddingRight: 80,
     lineHeight: 25,
   },
-//   btn: {
-//     backgroundColor: "#E2443B",
-//     // alignItems: "center",
-//     // justifyContent: "center",
-    
-//     borderRadius: 30,
-//   },
+    searchBar:{
+      marginTop:60,
+    },
   btnText: {
    
     alignItems: "center",
