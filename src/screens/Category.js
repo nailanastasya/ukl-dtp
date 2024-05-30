@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
   // },
   // text: {
     
+<<<<<<< HEAD
   //   alignItems: "center",
   //   justifyContent: "center",
   //   fontSize: 18,
@@ -121,6 +122,17 @@ const styles = StyleSheet.create({
     
 //     borderRadius: 30,
 //   },
+=======
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 18,
+    paddingRight: 80,
+    lineHeight: 25,
+  },
+    searchBar:{
+      marginTop:60,
+    },
+>>>>>>> 4f9e590c464ed1520b781a858c6a1959134b48e4
   btnText: {
    
     alignItems: "center",
